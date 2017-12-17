@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+        <import type="java.util.List"/>
+
+        <variable name="numbers" type="List&lt;String&gt;"/>
+        <variable name="counter" type="com.my.mad7m_000.bindabledata.Counter"/>
+        <variable name="colors" type="List&lt;Integer&gt;"/>
+    </data>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:text="@{String.valueOf(counter.count)}"
+            android:textSize="24sp"
+            android:textColor="@{colors[counter.count]}"
+            tools:text="как"
+            android:paddingLeft="10dp" />
+
+        <TextView android:layout_width="wrap_content"
+            android:layout_height="51dp"
+            android:text="@{numbers[counter.count]}"
+            android:textSize="24sp"
+            tools:text="тест"
+            android:textColor="@{colors[counter.count]}"
+            android:paddingLeft="10dp" />
+
+        <SeekBar
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/seekBar"
+            android:max="@{numbers.size - 1}" />
+
+    </LinearLayout>
+</layout>
